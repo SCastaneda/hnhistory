@@ -11,6 +11,9 @@
     "css": "*",
     "feedparser": "0.*",
     "express-partials": "0.*",
-    "mongoose" : "3.8.*"
+    "mongoose": "3.8.*",
+    "request": "*",
+    "cron": "*",
+    "time": "*"
   }
 }
