@@ -38,7 +38,7 @@ var CronJob  = require('cron').CronJob;
 var feed     = require('./feed.js');
 var db_posts = require('./db/posts');
 
-new CronJob('0 * * * * *', function(){
+new CronJob('00 00 * * * *', function(){
     console.log('You will see this message every hour');
     console.log('Fetching Feeds...');
     feed.getFeeds(function(feeds) {
@@ -46,7 +46,7 @@ new CronJob('0 * * * * *', function(){
             if(err)  {
                 console.error(err);
             } else {
-                console.log("successfully saved!");
+                console.log("successfully saved at " + (new Date()) );
             }
         });
     });

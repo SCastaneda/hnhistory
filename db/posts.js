@@ -26,4 +26,6 @@ exports.save_posts = function(posts, cb) {
     });
 }
 
+exports.get_posts = function(date, hour, cb) {
 
+};
