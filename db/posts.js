@@ -45,7 +45,7 @@ exports.get_posts = function(date, cb) {
         if(posts == null) {
             postModel.findOne({date: {"$lte": date}}, {}, {sort: {date: -1}}, function(err, posts) {
                 if(posts == null) {
-                    postModel.findOne({date: {"$gte": date}},{}, {sort: {date: -1}}, function(err, posts) {
+                    postModel.findOne({date: {"$gte": date}},{}, {sort: {date: 1}}, function(err, posts) {
                         return cb(posts);    
                     });
                 } else {
