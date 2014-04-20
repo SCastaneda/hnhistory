@@ -9,15 +9,13 @@
             <div style="padding-top: 10px">
                 <center>
                     <span>
-                        Date: <input type="date" name="date" value="<%= date %>">
+                        Date: <input type="date" name="date">
                     </span>
-                    Hour: <span id="hour"><%= hour %></span> &lt;- <span>0 <input onchange="document.getElementById('hour').innerHTML = this.value;" type="range" name="hour" step="1" min="0" max="23" value="<%= hour %>" style="width: 500px" value="<%= hour %>"> 23</span>
-                    <br><input type="submit" value="View"/>
+                    Hour: <span>2</span> &lt;- <span>0 <input type="range" name="hour" step="1" min="0" max="23" value="1" style="width: 500px"> 23</span>
+                    <input type="submit" value="View"/>
                 </center>
             </div>
         </form>
-        <br>
-        <center>Actual Date <a style="border-bottom: 1px dotted black" href="/about">(?)</a>: <%= actual_date %></center>
         <br>
         <center>
             <table border="0" cellpadding="0" cellspacing="0" width="85%" bgcolor="#f6f6ef">
@@ -52,22 +50,23 @@
                 <tr>
                     <td>
                         <table border="0" cellpadding="0" cellspacing="0">
-                            <% posts.forEach(function(post, i) { if(i == 0) {console.log("In ejs file -----");console.log(post); } %>
+                            <% posts.forEach(function(post, i) { console.log(post.date); console.log(post.date.toUTCString());  %>
                             <tr>
-                                <td align="right" valign="top" class="title"><%= i+1 %>. </td>
+                                <td align=right valign=top class="title"><%= i+1 %>.</td>
                                 <td class="title">
-                                    <a href="<%= post.link %>"> <%= post.title %></a>
-                                    <!-- <span class="comhead"> () </span> -->
+                                    <a href="/?date=<%= post.date.getUTCFullYear() %>-<%= (post.date.getUTCMonth() + 1) %>-<%= post.date.getUTCDate() %>&hour=<%= post.date.getHours() %>"><%= post.date %></a>
+                                    <span class="comhead"></span>
                                 </td>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <td colspan="1"></td>
                                 <td class="subtext">
-                                    <a href="<%= post.comments %>">View comments</a>
+                                    <span>194 points</span> by <a href="https://news.ycombinator.com/user?id=peterbotond">peterbotond</a> 2 hours ago  | <a href="https://news.ycombinator.com/item?id=7577872">86 comments</a>
                                 </td>
-                            </tr>
+                            </tr> -->
                             <tr style="height:15px"></tr>
                             <% }); %>
+        
                             <tr style="height:5px"></tr>
                         
                         </table>
@@ -94,7 +93,3 @@
         </center>
     </body>
 </html>
-
-
-
-

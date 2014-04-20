@@ -5,20 +5,7 @@
         <title>Hacker News History</title>
     </head>
     <body>
-        <form method="GET" action="/">
-            <div style="padding-top: 10px">
-                <center>
-                    <span>
-                        Date: <input type="date" name="date" value="<%= date %>">
-                    </span>
-                    Hour: <span id="hour"><%= hour %></span> &lt;- <span>0 <input onchange="document.getElementById('hour').innerHTML = this.value;" type="range" name="hour" step="1" min="0" max="23" value="<%= hour %>" style="width: 500px" value="<%= hour %>"> 23</span>
-                    <br><input type="submit" value="View"/>
-                </center>
-            </div>
-        </form>
-        <br>
-        <center>Actual Date <a style="border-bottom: 1px dotted black" href="/about">(?)</a>: <%= actual_date %></center>
-        <br>
+        
         <center>
             <table border="0" cellpadding="0" cellspacing="0" width="85%" bgcolor="#f6f6ef">
                 <tr>
@@ -51,26 +38,42 @@
 
                 <tr>
                     <td>
-                        <table border="0" cellpadding="0" cellspacing="0">
-                            <% posts.forEach(function(post, i) { if(i == 0) {console.log("In ejs file -----");console.log(post); } %>
-                            <tr>
-                                <td align="right" valign="top" class="title"><%= i+1 %>. </td>
-                                <td class="title">
-                                    <a href="<%= post.link %>"> <%= post.title %></a>
-                                    <!-- <span class="comhead"> () </span> -->
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="1"></td>
-                                <td class="subtext">
-                                    <a href="<%= post.comments %>">View comments</a>
-                                </td>
-                            </tr>
-                            <tr style="height:15px"></tr>
-                            <% }); %>
-                            <tr style="height:5px"></tr>
                         
-                        </table>
+                            <b>About HN History</b>
+                            <br>
+                            <span>
+                                I created HN History, because I too often remember <br>
+                                seeing something interesting on HN x days ago (where x is known) <br>
+                                and wanted to share it with someone, but was unable to find it again, because HN is fluid. <br>
+                                <br>
+                                All information gathered comes from HN's RSS feed.<br>
+                                It's a little limiting. It does not provide the points of the post, or the OP.<br>
+                                For now the RSS will do, if this is of use to anyone other than myself, I might expand to parse the actual website.<br>
+
+                            </span>
+                            <br>
+                            <span><b>What's with the 'Actual Date' ?</b></span><br>
+                            
+                            <span>
+                                If a date beyond HN History is selected, <br>
+                                it returns the lastest HN History grabbed.<br>
+                                <br>
+                                If a date before HN History was created(April 13th, 2014) is selected, <br>
+                                it returns the first of the HN History.<br>
+                            </span>
+                            <br>
+                            <span><b>About Me</b></span>
+                            <br>
+                            <span>
+                                <a href="http://sam-the-man.com">Website</a><br>
+                                <a href="http://www.github.com/scastaneda">Github</a><br>
+                                <a href="https://news.ycombinator.com/user?id=samjc">HN profile</a><br>
+                                <a href="mailto:sam'at'sam-the-man'dot'com">Contact Me</a>
+                            </span>
+
+
+                            
+                        
                         <tr>
                             <td>
                                 <img src="/images/inf.gif" height="10" width="0">
