@@ -6,8 +6,8 @@
     </head>
     <body>
         <%
-        if(typeof date == 'undefined' ) {
-            var date = new Date();
+        if(typeof date === 'undefined' && typeof hour === 'undefined' ) {
+            var date = actual_date;
             var hour = date.getHours();
             var month = +(date.getMonth() + 1);
             var date = date.getFullYear() + "-" + (month < 10 ? ("0" + month) : month) +"-"+ date.getDate(); 
