@@ -5,13 +5,27 @@
         <title>Hacker News History</title>
     </head>
     <body>
+
+        <%
+        var date = new Date();
+        var hour = date.getHours();
+        var month = +(date.getMonth() + 1);
+        var date = date.getFullYear() + "-" + (month < 10 ? ("0" + month) : month) +"-"+ date.getDate(); 
+
+
+        %>
         <form method="GET" action="/">
             <div style="padding-top: 10px">
                 <center>
                     <span>
-                        Date: <input type="date" name="date">
+                        Date: <input type="date" name="date" value="<%= date %>">
                     </span>
-                    Hour: <span>2</span> &lt;- <span>0 <input type="range" name="hour" step="1" min="0" max="23" value="1" style="width: 500px"> 23</span>
+                    Time: 
+                    <select name="hour">
+                        <% for(var i = 0; i < 24; i++) { %>
+                            <option value="<%= i %>" <%= (i == hour ? "selected" : "") %>><%= i %></option>
+                        <% } %>
+                    </select>
                     <input type="submit" value="View"/>
                 </center>
             </div>
@@ -37,7 +51,6 @@
                                             <a href="/about">about</a> |
                                             <a href="/list">last 50 hours</a>
                                         </span>
-                                        <img src="/images/inf.gif" height="1" width="10" />
                                     </span>
                                 </td>
                             </tr>
