@@ -7,10 +7,11 @@
     <body>
 
         <%
-        var date = new Date();
-        var hour = date.getHours();
+        var date  = new Date();
+        var hour  = date.getHours();
         var month = +(date.getMonth() + 1);
-        var date = date.getFullYear() + "-" + (month < 10 ? ("0" + month) : month) +"-"+ date.getDate(); 
+        var day   = date.getDate() < 10 ? ("0"+date.getDate()) : date.getDate();
+        var date  = date.getFullYear() + "-" + (month < 10 ? ("0" + month) : month) +"-"+ day;
         %>
         <form method="GET" action="/">
             <div style="padding-top: 10px">
